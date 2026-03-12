@@ -212,7 +212,17 @@ python main.py
 ```
 
 ---
+# System Architecture
 
+![Architecture Diagram](images/architecture.png)
+
+# Database Schema
+
+![Database Diagram](images/database_schema.png)
+
+# Program Flow
+
+![Program Flow](images/program_flow.png)
 # Future Improvements
 
 Planned upgrades include:
