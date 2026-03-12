@@ -1,6 +1,7 @@
 from models.employee import Employee
 from models.customer import Customer
 from models.store import Product
+from services.store_service import add_product, update_product, display_products, remove_product
 
 #EMPLOYEE MENU FUNCTIONS
 #=======================================================================================
@@ -92,11 +93,27 @@ def customer_menu():
 def product_menu():
 
     while True:
+        price = float(input("Price: "))
+
+        if price < 0:
+            print("Price cannot be negative")
+            return
+        price = float(input("Price: "))
+
+        if price < 0:
+            print("Price cannot be negative")
+            return
+        quantity = int(input("Quantity: "))
+
+        if quantity <= 0:
+            print("Quantity must be positive")
+            return
 
         print("\n--- Product Menu ---")
         print("1. Add Product")
         print("2. Update Product")
         print("3. Display Products")
+        print("4. Remove Product")
         print("0. Back")
 
         choice = input("Select option: ")
@@ -108,8 +125,7 @@ def product_menu():
             price = float(input("Price: "))
             quantity = int(input("Quantity: "))
 
-            p = Product(product_id, name, price, quantity)
-            p.add_product()
+            add_product(product_id, name, price, quantity)
 
         elif choice == "2":
 
@@ -124,6 +140,13 @@ def product_menu():
 
             p = Product(0, "", 0, 0)
             p.display_products()
+
+        elif choice == "4":
+
+            product_id = int(input("Product ID to remove: "))
+            amount = int(input("Quantity to remove: "))
+            remove_product(product_id, amount)
+
 
         elif choice == "0":
             break

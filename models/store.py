@@ -1,4 +1,5 @@
 from database.db import get_connection
+from services.logger import log_event
 
 class Product:
     def __init__(self, product_id, name, price, quantity):
@@ -26,19 +27,45 @@ class Product:
 
         print("Product added successfully")
 
-    def remove_product(self):
+    def remove_product(self, amount):
+
         conn = get_connection()
         cursor = conn.cursor()
 
         cursor.execute(
-            "DELETE FROM product WHERE product_id = ?",
+            "SELECT quantity FROM products WHERE product_id = ?",
             (self.product_id,)
         )
 
+        result = cursor.fetchone()
+
+        if result is None:
+            print("Product not found")
+            conn.close()
+            return
+
+        current_quantity = result[0]
+
+        if amount >= current_quantity:
+
+            cursor.execute(
+                "DELETE FROM products WHERE product_id = ?",
+                (self.product_id,)
+            )
+
+            print("Product completely removed")
+
+        else:
+
+            cursor.execute(
+                "UPDATE products SET quantity = quantity - ? WHERE product_id = ?",
+                (amount, self.product_id)
+            )
+
+            print(f"{amount} units removed")
+
         conn.commit()
         conn.close()
-
-        print("Product was removed successfully")
 
     def display_products(self):
         conn = get_connection()
@@ -106,6 +133,7 @@ class Product:
             self.name,
             sales_total
         ))
+        log_event("SALE", f"Product: {self.name}, Quantity: {quantity_sold}, Total: {sales_total}")
 
         conn.commit()
         conn.close()
