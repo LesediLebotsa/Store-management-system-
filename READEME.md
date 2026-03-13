@@ -214,15 +214,15 @@ python main.py
 ---
 # System Architecture
 
-![Architecture Diagram](images/architecture.png)
+![system architecture Diagram](docs/system_architecture.png)
 
 # Database Schema
 
-![Database Diagram](images/database_schema.png)
+![Database Diagram](docs/Database_schema.png)
 
 # Program Flow
 
-![Program Flow](images/program_flow.png)
+![Program Flow](docs/Program_flow.png)
 # Future Improvements
 
 Planned upgrades include:
