@@ -21,7 +21,7 @@ The goal of this project is to demonstrate:
 * Product inventory management
 * Sales processing with automatic stock reduction
 * Employee and customer management
-* RESTful API endpoints
+* RESTFul API endpoints
 * Service layer architecture
 * Structured logging
 * Swagger API documentation
@@ -33,20 +33,14 @@ The goal of this project is to demonstrate:
 # Tech Stack
 
 **Backend**
-
 * Python
 * Flask
 * SQLite
 
 **Architecture**
-
 * Flask Blueprints
 * Service Layer Pattern
 * Modular project structure
-
-**DevOps**
-
-* Docker
 
 **Testing**
 
@@ -94,6 +88,7 @@ tests
 
 Dockerfile
 requirements.txt
+.gitignore
 README.md
 
 ---
@@ -220,8 +215,7 @@ Planned improvements include:
 * Docker containerization
 * Improved validation and error handling
 * Inventory protection logic
-* API authentication
-* CI/CD integration
+* Updated project diagrams
 
 ---
 
