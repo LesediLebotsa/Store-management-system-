@@ -75,10 +75,8 @@ class Product:
 
         product = cursor.fetchall()
 
-        for prod in product:
-            print(prod)
-
         conn.close()
+        return product
 
     def update_product(self):
         conn = get_connection()

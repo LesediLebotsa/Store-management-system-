@@ -14,7 +14,7 @@ def update_product(product_id, price, quantity):
 
 def display_products():
     product = Product(0, "", 0, 0)
-    product.display_products()
+    return product.display_products()
 
 
 def sell_product(product_id, name, price, quantity):
